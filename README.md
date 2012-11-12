@@ -1,4 +1,4 @@
-silex-on-steroids
+Silex on Steroids
 =================
 
 Silex demo application.
