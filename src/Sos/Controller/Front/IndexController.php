@@ -22,10 +22,10 @@ use Symfony\Component\HttpKernel\HttpKernelInterface;
  */
 class IndexController extends Controller
 {
-    public function indexAction()
+    public function indexAction(Request $request)
     {
         return $this->container->handle(
-            Request::create($this->generateUrl('post_list')),
+            Request::create($this->generateUrl('post_list'), 'GET',  array(), $request->cookies->all(), array(), $request->server->all()),
             HttpKernelInterface::SUB_REQUEST
         );
     }
