@@ -1,0 +1,23 @@
+{% extends 'admin/layout.html.twig' %}
+
+{% block content %}
+    <h1 class="page-header">{% trans %}Post details{% endtrans %}</h1>
+    <div class="well">
+        <div class="row">
+            <div class="span8">
+                <h2>{{ post.title }}</h2>
+                <hr style="margin-top: 4px; margin-bottom: 4px;">
+                <p>{{ post.content }}</p>
+                <a href="{{ path('post_show', {'id': post.id}) }}" class="btn">
+                    <i class="icon-book"></i> {% trans %}show in front{% endtrans %}
+                </a>
+                <a href="{{ path('admin_post_update', {'id' : post.id}) }}" class="btn">
+                    <i class="icon-pencil"></i> {% trans %}update{% endtrans %}
+                </a>
+                <a href="{{ path('admin_post_delete', {'id' : post.id}) }}" class="btn btn-danger confirm">
+                    <i class="icon-trash icon-white"></i> {% trans %}delete{% endtrans %}
+                </a>
+            </div>
+        </div>
+    </div>
+{% endblock %}

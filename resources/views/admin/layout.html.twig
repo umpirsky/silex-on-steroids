@@ -1,0 +1,56 @@
+<!DOCTYPE html>
+<html lang="en">
+    <head>
+        <meta charset="utf-8">
+        <title>{% trans %}Blog Administrator{% endtrans %}</title>
+        <meta name="viewport" content="width=device-width, initial-scale=1.0">
+        <meta name="description" content="">
+        <meta name="author" content="">
+        <link rel="stylesheet" href="/css/bootstrap.css">
+        <link rel="stylesheet" href="/css/bootstrap-responsive.css">
+        <link rel="stylesheet" href="/css/admin.css">
+        <meta name="viewport" content="width=device-width">
+        <script src="/js/modernizr-2.5.3-respond-1.1.0.min.js"></script>
+    </head>
+    <body>
+        <div class="navbar navbar-fixed-top navbar-inverse">
+            <div class="navbar-inner">
+                <div class="container">
+                    <a class="brand" href="{{ path('admin_index') }}">Silex on Steroids</a>
+                    <ul class="nav">
+                        <li class="dropdown">
+                            <a href="#" class="dropdown-toggle" data-toggle="dropdown">{% trans %}Post{% endtrans %} <b class="caret"></b></a>
+                            <ul class="dropdown-menu">
+                                <li><a href="{{ path('admin_post_create') }}">{% trans %}Create post{% endtrans %}</a></li>
+                                <li><a href="{{ path('admin_post_list') }}">{% trans %}List posts{% endtrans %}</a></li>
+                            </ul>
+                        </li>
+                        <li><a href="{{ path('index') }}">{% trans %}Front{% endtrans %}</a></li>
+                    </ul>
+                </div>
+            </div>
+        </div>
+        <div class="container">
+            {% block content %}{% endblock %}
+            <div class="modal hide fade in" id="confirm_dialog" role="dialog">
+                <div class="modal-header">
+                    <button type="button" class="close" data-dismiss="modal" aria-hidden="true">×</button>
+                    <h3>{% trans %}Confirm{% endtrans %}</h3>
+                </div>
+                <div class="modal-body">
+                    <p>{% trans %}Are you sure you want to perform this action?{% endtrans %}</p>
+                </div>
+                <div class="modal-footer">
+                    <button class="btn" data-dismiss="modal" aria-hidden="true">{% trans %}cancel{% endtrans %}</button>
+                    <a class="btn btn-primary">{% trans %}yes{% endtrans %}</a>
+                </div>
+            </div>
+        </div>
+
+        {% block javascripts %}
+            <script src="https://ajax.googleapis.com/ajax/libs/jquery/1.8.2/jquery.min.js"></script>
+            <script src="/js/bootstrap.min.js"></script>
+            <script src="/js/admin.js"></script>
+        {% endblock %}
+    </body>
+</html>

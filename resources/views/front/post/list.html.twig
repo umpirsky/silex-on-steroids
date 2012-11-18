@@ -1,0 +1,11 @@
+{% extends 'front/layout.html.twig' %}
+
+{% block content %}
+    <h1 class="page-header">{% trans %}Silex on Steroids Blog{% endtrans %} <small>{% trans %}Silex blog engine demo{% endtrans %}</small></h1>
+    {% for post in posts %}<tr>
+        <h2><a href="{{ path('post_show', {'id': post.id}) }}">{{ post.title }}</a></h2>
+        <p>{{ post.content }}</p>
+    {% else %}
+        <div class="alert alert-info">{% trans %}There are no posts to display.{% endtrans %}</div>
+    {% endfor %}
+{% endblock %}

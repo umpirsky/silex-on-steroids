@@ -1,0 +1,47 @@
+<?php
+
+$app['locale'] = 'en';
+
+$app['session.default_locale'] = $app['locale'];
+
+$app['security.firewalls'] = array(
+    'admin' => array(
+        'pattern' => '^/admin',
+        'http' => true,
+        'users' => array(
+            // raw password is foo
+            'admin' => array('ROLE_ADMIN', '5FZ2Z8QIkA7UTZ4BYkoC+GsReLf569mSKDsfods6LYQ8t+a8EW9oaircfMpmaLbPBh4FOBiiFyLfuZmTSUwzZg=='),
+        ),
+    ),
+);
+
+$app['http_cache.cache_dir'] = APPLICATION_ROOT_PATH.'/resources/cache/http';
+
+$app['assetic.path_to_cache'] = APPLICATION_ROOT_PATH.'/resources/cache/assetic';
+$app['assetic.path_to_web'] = APPLICATION_ROOT_PATH.'/web/assets';
+$app['assetic.input.path_to_css'] = array(
+    APPLICATION_ROOT_PATH.'/web/css/bootstrap.css',
+    APPLICATION_ROOT_PATH.'/web/css/bootstrap-responsive.css',
+    APPLICATION_ROOT_PATH.'/web/css/front.css',
+);
+$app['assetic.output.path_to_css'] = 'css/styles.css';
+$app['assetic.input.path_to_js'] = array(
+    APPLICATION_ROOT_PATH.'/web/js/bootstrap.min.js',
+);
+$app['assetic.output.path_to_js'] = 'js/scripts.js';
+$app['assetic.filter.yui_compressor.path'] = '/usr/share/yui-compressor/yui-compressor.jar';
+
+$app['doctrine_orm.options'] = array(
+    'doctrine_orm.entities_path'         => APPLICATION_ROOT_PATH.'/src/Sos/Entity',
+    'doctrine_orm.proxies_path'          => APPLICATION_ROOT_PATH.'/resources/cache/proxies',
+    'doctrine_orm.proxies_namespace'     => 'Doctrine\ORM\Proxy\Proxy',
+    'doctrine_orm.metadata_cache'        => new \Doctrine\Common\Cache\FilesystemCache(APPLICATION_ROOT_PATH.'/resources/cache/doctrine/metadata'),
+    'doctrine_orm.connection_parameters' => array(
+        'driver'   => 'pdo_mysql',
+        'host'     => 'localhost',
+        'dbname'   => 'silex_on_steroids',
+        'user'     => 'root',
+        'password' => '',
+        'charset'  => 'utf8',
+    )
+);

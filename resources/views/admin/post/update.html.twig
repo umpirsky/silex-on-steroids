@@ -1,0 +1,11 @@
+{% extends 'admin/layout.html.twig' %}
+
+{% block content %}
+    <h1 class="page-header">{% trans %}Updating post{% endtrans %} <small>{% trans %}Use the form below to update existing post{% endtrans %}</small></h1>
+    <form action="{{ path('admin_post_update', {'id': app.request.get('id')}) }}" method="post" class="form-horizontal">
+        {{ form_widget(form) }}
+        <div class="form-actions">
+            <input type="submit" name="submit" value="{% trans %}save changes{% endtrans %}" class="btn btn-primary btn-large" />
+        </div>
+    </form>
+{% endblock %}

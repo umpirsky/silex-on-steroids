@@ -1,0 +1,5 @@
+#!/usr/bin/env sh
+
+./vendor/bin/doctrine orm:schema-tool:drop --force
+./vendor/bin/doctrine orm:schema-tool:create
+./console fixtures:load resources/fixtures

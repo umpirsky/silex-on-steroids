@@ -1,0 +1,49 @@
+{% extends 'admin/layout.html.twig' %}
+
+{% block content %}
+    <h1 class="page-header">{% trans %}List posts{% endtrans %} <small>{% trans %}List of all posts in the database{% endtrans %}</small></h1>
+    {% if posts|length > 0 %}
+        <table class="table table-hover">
+            <thead>
+              <tr>
+                <th>#</th>
+                <th>{% trans %}Title{% endtrans %}</th>
+                <th>{% trans %}Content{% endtrans %}</th>
+                <th></th>
+              </tr>
+            </thead>
+            <tbody>
+                {% for post in posts %}<tr>
+                    <td>{{ post.id }}</td>
+                    <td>{{ post.title }}</td>
+                    <td>{{ post.content }}</td>
+                    <td>
+                        <div class="btn-toolbar pull-right">
+                            <div class="btn-group">
+                                <a href="{{ path('admin_post_show', {'id' : post.id}) }}" class="btn">
+                                   <i class="icon-book"></i> {% trans %}show{% endtrans %}
+                                </a>
+                                <a href="#" data-toggle="dropdown" class="btn dropdown-toggle"><span class="caret"></span></a>
+                                <ul class="dropdown-menu">
+                                    <li>
+                                        <a href="{{ path('admin_post_update', {'id' : post.id}) }}">
+                                           <i class="icon-pencil"></i> {% trans %}update{% endtrans %}
+                                        </a>
+                                    </li>
+                                    <li>
+                                        <a href="{{ path('admin_post_delete', {'id' : post.id}) }}" class="confirm">
+                                            <i class="icon-trash"></i> {% trans %}delete{% endtrans %}
+                                        </a>
+                                    </li>
+                                </ul>
+                            </div>
+                        </div>
+                    </td>
+                  </tr>
+                {% endfor %}
+            </tbody>
+        </table>
+    {% else %}
+        <div class="alert alert-info">{% trans %}There are no posts to display.{% endtrans %}</div>
+    {% endif %}
+{% endblock %}

@@ -1,0 +1,9 @@
+{% extends 'admin/layout.html.twig' %}
+
+{% block content %}
+<div class="hero-unit">
+    <div>
+        <h1>{% trans %}Welcome{% endtrans %} <small>{% trans %}Administrator dashboard{% endtrans %}</small></h1>
+        <p>{% transchoice count %}{0} There are no posts in database.|{1} There is one post in database.|]1,Inf] There are %count% posts in database.{% endtranschoice %}</p>
+    </div>
+{% endblock %}

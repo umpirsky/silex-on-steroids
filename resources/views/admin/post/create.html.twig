@@ -1,0 +1,11 @@
+{% extends 'admin/layout.html.twig' %}
+
+{% block content %}
+    <h1 class="page-header">{% trans %}Creating post{% endtrans %} <small>{% trans %}Use the form below to create a new post{% endtrans %}</small></h1>
+    <form action="{{ path('admin_post_create') }}" method="post" class="form-horizontal">
+        {{ form_widget(form) }}
+        <div class="form-actions">
+            <input type="submit" name="submit" value="{% trans %}create post{% endtrans %}" class="btn btn-primary btn-large" />
+        </div>
+    </form>
+{% endblock %}

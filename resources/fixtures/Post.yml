@@ -1,0 +1,4 @@
+Sos\Entity\Post:
+    menu{0..30}:
+        title: <sentence()>
+        content: <text(255)>
