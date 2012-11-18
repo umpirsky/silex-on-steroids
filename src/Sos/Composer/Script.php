@@ -13,6 +13,7 @@ class Script
         self::mkdir('web/assets', 0777);
         chmod('console', 0500);
         exec('php console assetic:dump');
+        exec('bin/rebuild-database');
     }
 
     private static function mkdir($path, $mode)

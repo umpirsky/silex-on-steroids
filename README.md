@@ -20,3 +20,11 @@ skeleton for your next applications.
 * [Twig](http://silex.sensiolabs.org/doc/providers/twig.html)
 * [UrlGenerator](http://silex.sensiolabs.org/doc/providers/url_generator.html)
 * [Twitter Bootstrap](http://twitter.github.com/bootstrap/)
+
+## Installation
+
+```
+git clone https://github.com/umpirsky/silex-on-steroids.git <path/to/app>
+cd <path/to/app>
+php composer.phar install
+```
