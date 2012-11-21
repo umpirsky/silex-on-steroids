@@ -28,3 +28,8 @@ git clone https://github.com/umpirsky/silex-on-steroids.git <path/to/app>
 cd <path/to/app>
 php composer.phar install
 ```
+
+## Credits
+
+* [Silex Kitchen Edition](https://github.com/lyrixx/Silex-Kitchen-Edition)
+* [Scaling a Silex code base](https://igor.io/2012/11/09/scaling-silex.html)
